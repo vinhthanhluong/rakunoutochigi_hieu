@@ -1,0 +1,55 @@
+@use "../global" as *;
+
+.header {
+    position: fixed;
+    top: 16px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+
+    &_inner {
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+        max-width: 1475px;
+        min-height: 92px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_logo {
+        &__link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        &__img {
+
+        }
+
+        &__txt {
+            color: #1C1C1C;
+            font-family: $font-base;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: calc(36/30);
+            padding-bottom: 0.15em;
+        }
+    }
+
+    &_content {
+
+    }
+
+    &_top {
+        .header_inner {
+            max-width: 1505px;
+        }
+
+        .header_content {
+            display: none;
+        }
+    }
+}

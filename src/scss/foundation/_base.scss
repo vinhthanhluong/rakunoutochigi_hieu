@@ -1,0 +1,43 @@
+@use "../global" as *;
+
+/*!
+foundation > base
+------------------------------
+*/
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-size: rem(17);
+    color: $color-font-base;
+    font-family: $font-base;
+    font-weight: 400;
+    line-height: 2;
+    background: url(../images/common/bg_body.webp) top center/100% auto repeat-y;
+}
+
+p {
+    letter-spacing: 0.05em;
+}
+
+.wrapper {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.pc {
+    @include mq(sp) {
+        display: none !important;
+    }
+}
+
+.sp {
+    @include mq(md) {
+        display: none !important;
+    }
+}

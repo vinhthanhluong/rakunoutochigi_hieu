@@ -1,0 +1,25 @@
+@use "../global" as *;
+
+/*!
+layout > container
+------------------------------
+*/
+
+.container {
+    padding: 0 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: $width-content;
+
+    &_md {
+        max-width: 1240px;
+    }
+
+    &_sm {
+        max-width: 1140px;
+    }
+
+    &_xs {
+        max-width: 1040px;
+    }
+}

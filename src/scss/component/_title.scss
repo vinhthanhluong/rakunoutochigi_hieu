@@ -1,0 +1,44 @@
+@use "../global" as *;
+
+.c_ttl {
+    &__vertical {
+        display: inline-block;
+        @include txt_vertical;
+        color: $color-white;
+        
+    }
+
+    &__blue {
+        background: url('../images/common/bg_text_blue.svg') top center/100% 100% no-repeat;
+    }
+
+    &__en {
+        display: block;
+        font-family: $font-en;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.6;
+    }
+
+    &__jp {
+        display: block;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.35;
+        letter-spacing: 0.04em;
+    }
+}
+
+.txt {
+    &_blue {
+        color: $color-blue;
+    }
+
+    &_orange {
+        color: $color-orange;
+    }
+
+    &_green {
+        color: $color-green;
+    }
+}

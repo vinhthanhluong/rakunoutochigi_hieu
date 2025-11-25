@@ -1,0 +1,18 @@
+/*!
+global > mixin
+------------------------------
+*/
+
+@mixin overtext($lines) {
+	display: -webkit-inline-box;
+	-webkit-line-clamp: $lines;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@mixin txt_vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  display: inline-block;
+}
