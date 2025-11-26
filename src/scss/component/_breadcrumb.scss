@@ -1,0 +1,31 @@
+@use "../global" as *;
+
+.c_breadcrumb {
+    padding: 8px 0;
+
+    &__list {
+        padding: 0 10px;
+        margin-left: auto;
+        width: fit-content;
+        line-height: 1;
+    }
+
+    &__item {
+        display: inline;
+
+        &:not(:last-child) {
+            &::after {
+                content: '>';
+                margin-left: 5px;
+                font-size: 12px;
+            }
+        }
+
+        >a, >span {
+            font-size: 12px;
+            font-weight: 400;
+            color: $color-black;
+            letter-spacing: 0.05em;
+        }
+    }
+}
