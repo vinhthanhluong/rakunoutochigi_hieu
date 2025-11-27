@@ -2,51 +2,196 @@
 
 .nav {
     &_wrapper {
-        padding: 20px 26px 20px 75px;
+        padding: 73px 45px 120px;
         display: flex;
-        align-items: center;
-        background: $color-white;
-        border-radius: 52px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+        flex-direction: column;
+        height: 100dvh;
+        background: url('../images/common/bg_body.webp') top center/cover repeat-y;
+        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        transition: .4s ease;
+
+        @include mq(ld) {
+            height: auto;
+            flex-direction: row;
+            align-items: center;
+            padding: 20px 26px 20px 75px;
+            background: $color-white;
+            border-radius: 52px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+            overflow-y: unset;
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &_btn {
-        margin-left: min(1.58vw, 23px);
-        display: inline-block;
-        width: 64px;
-        aspect-ratio: 1/1;
-        background: $color-blue;
-        border-radius: 50%;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 300px;
+
+        &__contact {
+            margin-bottom: 15px;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: $color-white;
+            border: 1px solid $color-blue;
+            border-radius: 15px;
+
+            @include mq(ld) {
+                display: none;
+            }
+
+            .contact_ttl {
+                color: $color-blue;
+                font-weight: 700;
+                text-align: center;
+                line-height: 1.4;
+            }
+
+            .contact_tel {
+                position: relative;
+                padding-left: 27px;
+                margin-bottom: 2px;
+                color: $color-blue;
+                font-family: $font-en;
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 1.25;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: calc(50% + 0.15em);
+                    left: 0;
+                    transform: translateY(-50%);
+                    width: 22px;
+                    aspect-ratio: 22/28;
+                    background: url('../images/common/icon_tel.svg') center/100% auto no-repeat;
+                }
+            }
+
+            .contact_desc {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: calc(18/12);
+                text-align: center;
+            }
+        }
+
+        &__mail {
+            margin-bottom: 13px;
+            padding: 17px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: $color-blue;
+            border-radius: 15px;
+
+            @include mq(ld) {
+                margin-bottom: 0;
+                margin-left: min(1.58vw, 23px);
+                padding: 0;
+                display: inline-block;
+                width: 64px;
+                aspect-ratio: 1/1;
+                background: url('../images/common/icon_mail.svg') center/32px auto no-repeat, $color-blue;
+                border-radius: 50%;
+
+                .mail_ttl, .mail_desc {
+                    display: none;
+                }
+            }
+
+            .mail_ttl {
+                position: relative;
+                margin-bottom: 2px;
+                color: $color-white;
+                font-weight: 700;
+                text-align: center;
+                line-height: 1.4;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: -36px;
+                    transform: translateY(-50%);
+                    width: 30px;
+                    aspect-ratio: 30/24;
+                    background: url('../images/common/icon_mail.svg') center/100% auto no-repeat;
+                }
+            }
+
+            .mail_desc {
+                color: $color-white;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: calc(24/12);
+                text-align: center;
+            }
+        }
+    }
+
+    &_policy {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 0 auto;
+
+        @include mq(ld) {
+            display: none;
+        }
     }
 }
 
 .c_menu {
-    padding-top: 10px;
+    margin-bottom: 8px;
     display: flex;
-    align-items: center;
-    gap: min(3.44vw, 49px);
+    flex-direction: column;
 
-    &__item {
-
+    @include mq(ld) {
+        margin-bottom: 0;
+        flex-direction: row;
+        align-items: center;
+        padding-top: 10px;
+        gap: min(3.44vw, 49px);
     }
 
     &__link {
+        padding: 20px 23px 20px 0;
         display: flex;
-        flex-direction: column;
         align-items: center;
+        background: url('../images/common/icon_menu.svg') calc(100% - 7px) 50%/8px auto no-repeat;
+        gap: 10px;
+        border-bottom: 1px solid $color-blue;
+        
+        @include mq(ld) {
+            padding: 0;
+            flex-direction: column;
+            gap: 0;
+            background: none;
+            border-bottom: none;
+        }
     }
 
     &__jp {
         font-weight: 700;
         line-height: calc(25/17);
-        text-align: center;
-
-        &::before {
-            content: '・';
+        
+        @include mq(ld) { 
+            text-align: center;
+            
+            &::before {
+                content: '・';
+            }
         }
     }
 
-    &__en {
+    &__en { 
         color: $color-blue;
         font-family: $font-en;
         font-size: 12px;
@@ -57,7 +202,12 @@
 }
 
 .c_recruit {
-    margin-left: min(2.47vw, 36px); 
+    margin-bottom: 50px;
+
+    @include mq(ld) {
+        margin-bottom: 0;
+        margin-left: min(2.47vw, 36px); 
+    }
 
     &__item {
         position: relative;
@@ -72,46 +222,119 @@
             }
         }
 
-        >span, >a {
-            padding: 6px 36px;
-            display: inline-block;
-            background: $color-orange;
-            color: $color-white;
-            font-size: 16px;
+        
+    }
+
+    &__ttl {
+        position: relative;
+        padding: 13px 21px 13px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @include mq(ld) {
+            padding: 0;
+        }
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 3px;
+            width: 15px;
+            height: 2px;
+            background: $color-orange;  
+            transition: .4s ease;
+
+            @include mq(ld) {
+                display: none;
+            }
+        }
+
+        &::after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        &__jp {
             font-weight: 700;
-            line-height: calc(24/16);
-            border-radius: 18px;
-            cursor: pointer;
+            line-height: calc(25/17);
+
+            @include mq(ld) {
+                padding: 6px 36px;
+                display: inline-block;
+                background: $color-orange;
+                color: $color-white;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: calc(24/16);
+                border-radius: 18px;
+                cursor: pointer;
+            }
+        }
+
+        &__en {
+            color: $color-orange;
+            font-family: $font-en;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+
+            @include mq(ld) {
+                display: none;
+            }
         }
     }
 
     &__sub {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 66px 26px 30px;
-        width: 240px;
-        background: #FDFAEC;
-        border-radius: 18px;
-        opacity: 0;
-        visibility: hidden;
-        transition: .4s ease;
-        z-index: -1;
+        margin-left: 14px;
+        display: none;
+
+        @include mq(ld) {
+            display: block;
+            margin-left: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 66px 26px 30px;
+            width: 240px;
+            background: #FDFAEC;
+            border-radius: 18px;
+            opacity: 0;
+            visibility: hidden;
+            transition: .4s ease;
+            z-index: -1;
+        }
     }
 
     &__subitem {
         line-height: 1;
 
         &:not(:last-child) {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+
+            @include mq(ld) {
+                margin-bottom: 20px;
+            }
         }
         
         a {
-            font-weight: 700;
-            line-height: calc(25/17);
+            font-size: 14px;
+            font-weight: 700; 
+
+            @include mq(ld) {
+                font-size: 17px;
+                line-height: calc(25/17);
+            }
 
             &::before {
                 content: '・';
+                color: $color-orange;
+
+                @include mq(ld) {
+                    color: $color-font-base;
+                }
             }
         }
     }

@@ -10,12 +10,16 @@ html, body {
 }
 
 body {
-    font-size: rem(17);
+    font-size: rem(16);
     color: $color-font-base;
     font-family: $font-base;
     font-weight: 400;
     line-height: 2;
     background: url('../images/common/bg_body.webp') top center/100% auto repeat-y;
+    
+    @include mq() {
+        font-size: rem(17);
+    }
 }
 
 p {
