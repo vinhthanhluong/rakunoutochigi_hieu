@@ -1,6 +1,77 @@
 @use "../global" as *;
 
-/*!
-component > footer
-------------------------------
-*/
+.footer {
+    position: relative;
+    padding: 66px 0 41px;
+    background: $color-white;
+    z-index: 10;
+
+    &_logo {
+        margin-bottom: 7px;
+
+        &__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        &__txt {
+            color: #1C1C1C;
+            font-family: $font-base;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: calc(36/30);
+            padding-bottom: 0.15em;
+        }
+    }
+
+    &_inner {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px 49px;
+    }
+
+    &_content {
+        font-size: 16px;
+        letter-spacing: normal;
+    }
+
+    &_menu {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 5px 60px;
+
+        &__item {
+
+        }
+
+        &__link {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.6;
+
+            &::before {
+                content: '・';
+            }
+        }
+    }
+
+    &_policy {
+        margin-top: -5px;
+        margin-bottom: 23px;
+        text-align: right;
+        line-height: 1;
+
+        &__btn {
+            font-size: 16px;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .copy {
+        font-size: 13px;
+        text-align: center;
+        letter-spacing: normal;
+    }
+}

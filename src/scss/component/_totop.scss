@@ -1,0 +1,37 @@
+@use "../global" as *;
+
+.c_totop {
+    position: fixed;
+    bottom: 195px;
+    right: max(min(6.25vw, 100px), 20px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 88px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: url('../images/common/icon_totop.svg') center/44px auto no-repeat, $color-blue;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-blue;
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .8s ease;
+    cursor: pointer;
+    z-index: 20;
+
+    &.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    &.active {
+        bottom: 177px;
+    }
+}

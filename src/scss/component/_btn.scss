@@ -1,7 +1,7 @@
 @use "../global" as *;
 
 .c_btn {
-    padding: 10px 40px;
+    padding: 10px 22px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -23,5 +23,17 @@
     &__main {
         color: $color-blue;
         border: 1px solid $color-blue;
+    }
+
+    &__brown {
+        color: $color-white;
+        font-size: 18px;
+        min-height: 65px;
+        min-width: 300px;
+        background: $color-brown;
+
+        &::after {
+            background-image: url('../images/common/icon_arr.svg')
+        }
     }
 }

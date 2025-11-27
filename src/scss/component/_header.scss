@@ -16,6 +16,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: .3s ease;
     }
 
     &_logo {
@@ -23,10 +24,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        &__img {
-
         }
 
         &__txt {
@@ -39,17 +36,33 @@
         }
     }
 
-    &_content {
-
-    }
-
     &_top {
         .header_inner {
             max-width: 1505px;
         }
 
         .header_content {
-            display: none;
+            height: 0;
+            opacity: 0;
+            visibility: hidden;
         }
+    }
+}
+
+.is-fixed {
+    .header {
+        &_top {
+            .header_content {
+                padding-right: 32px;
+                height: auto;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .js-fixed {
+        opacity: 0;
+        visibility: hidden;
     }
 }
