@@ -62,7 +62,10 @@
                         </ul>
                         <ul class="c_recruit">
                             <li class="c_recruit__item">
-                                <span>採用情報</span>
+                                <div class="c_recruit__ttl">
+                                    <span class="c_recruit__ttl__jp">採用情報</span>
+                                    <span class="c_recruit__ttl__en">RECRUIT</span>
+                                </div>
                                 <ul class="c_recruit__sub">
                                     <li class="c_recruit__subitem"><a href="#">採用情報TOP</a></li>
                                     <li class="c_recruit__subitem"><a href="#">数字で見る酪農とちぎ</a></li>
@@ -72,12 +75,28 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="#" class="nav_btn" aria-label=""></a>
+                        <a href="#" class="nav_btn nav_btn__contact">
+                            <span class="contact_ttl">お電話でのお問い合わせ</span>
+                            <span class="contact_tel">028-660-2211</span>
+                            <span class="contact_desc">平日8:30～17:00　土曜8:30～12:00<br>日曜・祝日は休日となります。</span>
+                        </a>
+                        <a href="#" class="nav_btn nav_btn__mail">
+                            <span class="mail_ttl">メールでのお問い合わせ</span>
+                            <span class="mail_desc">自動でメールソフトが立ち上がります</span>
+                        </a>
+                        <a href="#" class="nav_policy">個人情報保護方針</a>
                     </nav>
                 </div>
             </div>
-            
         </header>
+
+        <div class="c_hamburger">
+            <div class="c_hamburger__bar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
         <!-- ↑↑ header ↑↑ -->
 
         <main class="under news">
@@ -121,12 +140,47 @@
         </main>
         <!-- ↑↑ main ↑↑ -->
 
-        <footer>
-            <p class="copy"><small></small></p>
+        <footer class="footer">
+            <div class="container container_md">
+                <div class="footer_logo">
+                    <a href="#" class="footer_logo__link">
+                        <img src="../assets/images/common/img_logo.svg" alt="" class="footer_logo__img">
+                        <span class="footer_logo__txt">酪農とちぎ農業協同組合</span>
+                    </a>
+                </div>
+                <div class="footer_inner">
+                    <p class="footer_content">〒321-0905 栃木県宇都宮市平出工業団地6番地7 栃木県畜産会館1Ｆ<br>TEL 028-660-2211　　FAX 028-660-2129</p>
+                    <ul class="footer_menu">
+                        <li class="footer_menu__item">
+                            <a href="#" class="footer_menu__link">お知らせ</a>
+                        </li>
+                        <li class="footer_menu__item">
+                            <a href="#" class="footer_menu__link">組合情報</a>
+                        </li>
+                        <li class="footer_menu__item">
+                            <a href="#" class="footer_menu__link">資料ページ</a>
+                        </li>
+                        <li class="footer_menu__item">
+                            <a href="#" class="footer_menu__link">採用情報</a>
+                        </li>
+                        <li class="footer_menu__item">
+                            <a href="#" class="footer_menu__link">お問い合わせ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer_policy">
+                    <a href="#" class="footer_policy__btn">個人情報保護方針</a>
+                </div>
+                <p class="copy">&copy; Rakuno Tochigi Agricultural Cooperative 2025.<br class="sp"> All Rights Reserved.</p>
+            </div>
         </footer>
         <!-- ↑↑ footer ↑↑ -->
+
+        <div class="c_totop">TOP</div>
+        <!-- ↑↑ to top ↑↑ -->
     </div>
     <!--wrapper-->
+    <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/common.js"></script>
 </body>
 

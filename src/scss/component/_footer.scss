@@ -2,54 +2,100 @@
 
 .footer {
     position: relative;
-    padding: 66px 0 41px;
+    padding: 60px 0 20px;
     background: $color-white;
     z-index: 10;
+
+    @include mq() {
+        padding: 66px 0 41px;
+    }
 
     &_logo {
         margin-bottom: 7px;
 
+        @include mq(sp) {
+            text-align: center;
+        }
+
         &__link {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 7px;
+
+            @include mq() {
+                gap: 10px;
+            }
+        }
+
+        &__img {
+            width: 24px;
+
+            @include mq() {
+                width: 33px;
+            }
         }
 
         &__txt {
             color: #1C1C1C;
             font-family: $font-base;
-            font-size: 30px;
+            font-size: 18px;
             font-weight: 700;
             line-height: calc(36/30);
-            padding-bottom: 0.15em;
+            
+            @include mq() {
+                font-size: 30px;
+                padding-bottom: 0.15em;
+            }
         }
     }
 
     &_inner {
         display: flex;
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: center;
         flex-wrap: wrap;
         gap: 20px 49px;
+
+        @include mq {
+            flex-direction: row;
+            align-items: flex-start;
+        }
     }
 
     &_content {
-        font-size: 16px;
+        font-size: 14px;
+        text-align: center;
         letter-spacing: normal;
+
+        @include mq {
+            font-size: 16px;
+            text-align: left;
+        }
     }
 
     &_menu {
+        margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
         gap: 5px 60px;
+
+        @include mq {
+            margin: 0;
+            grid-template-columns: repeat(3, auto);
+        }
 
         &__item {
 
         }
 
         &__link {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             line-height: 1.6;
+
+            @include mq {
+                font-size: 18px;
+            }
 
             &::before {
                 content: '・';
@@ -58,14 +104,23 @@
     }
 
     &_policy {
-        margin-top: -5px;
+        margin-top: 10px;
         margin-bottom: 23px;
-        text-align: right;
+        text-align: center;
         line-height: 1;
 
+        @include mq {
+            margin-top: -5px;
+            text-align: right;
+        }
+
         &__btn {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 0.05em;
+
+            @include mq {
+                font-size: 16px;
+            }
         }
     }
 
@@ -73,5 +128,9 @@
         font-size: 13px;
         text-align: center;
         letter-spacing: normal;
+
+        @include mq(sp) {
+            line-height: 1.5;
+        }
     }
 }

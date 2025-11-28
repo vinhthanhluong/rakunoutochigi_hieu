@@ -2,16 +2,16 @@
 
 .c_totop {
     position: fixed;
-    bottom: 195px;
-    right: max(min(6.25vw, 100px), 20px);
+    bottom: 146px;
+    right: 100px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 88px;
+    width: 62px;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background: url('../images/common/icon_totop.svg') center/44px auto no-repeat, $color-blue;
-    font-size: 16px;
+    background: url('../images/common/icon_totop.svg') center/30px auto no-repeat, $color-blue;
+    font-size: 12px;
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
@@ -20,9 +20,26 @@
     transform: translateY(20px);
     opacity: 0;
     visibility: hidden;
-    transition: .8s ease;
+    transition: opacity .4s ease, all .6s ease;
     cursor: pointer;
     z-index: 20;
+
+    @media screen and (max-width: 1599px) {
+        right: 16px;
+    }
+
+    @include mq() {
+        bottom: 195px;
+        width: 88px;
+        background-size: 44px auto;
+        font-size: 16px;
+    }
+
+    @include hover() {
+        &:hover {
+            opacity: .8;
+        }
+    }
 
     &.show {
         transform: translateY(0);
@@ -32,6 +49,16 @@
 
 
     &.active {
-        bottom: 177px;
+        bottom: 60px;
+
+        @include mq() {
+            bottom: 177px;
+        }
+    }
+
+    &.reset {
+        @include mq(sp) {
+            bottom: 16px;
+        }
     }
 }

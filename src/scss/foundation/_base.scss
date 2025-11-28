@@ -26,6 +26,16 @@ p {
     letter-spacing: 0.05em;
 }
 
+a {
+    transition: .4s ease;
+
+    @include hover() {
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+
 main {
     position: relative;
 
@@ -36,8 +46,14 @@ main {
         left: 0;
         width: 100%;
         height: 186px;
-        background: url('../images/common/bg_body_02.svg') calc(100% + 200px) 100%/max(100%, 2000px) no-repeat;
+        background: url('../images/common/bg_body_02.svg') calc(100% + 200px) 100%/max(100%, 2000px) auto no-repeat;
         z-index: 10;
+
+        @include mq(sp) {
+            height: 93px;
+            background-position: calc(100% + 100px) 100%;
+            background-size: max(100%, 1000px) auto;
+        }
 
         @media screen and (min-width: 1601px) {
             background-position: bottom center;

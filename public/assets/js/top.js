@@ -1,7 +1,5 @@
-// WINDOW LOAD
 jQuery(window).bind('load', function() {
     "use strict";
-    // INTERVIEW - CAROUSEL
     if( jQuery('.interview_carousel').length > 0 ) {
         jQuery('.interview_carousel').slick({
             dots: false,
@@ -20,27 +18,38 @@ jQuery(window).bind('load', function() {
             accessibility: false,
         });
     }
-    /*============== END - INTERVIEW - CAROUSEL ================*/
+    /*↑↑ INTERVIEW CAROUSEL ↑↑*/
 });
 
 
-// FIXED NAV
 const initFixed = () => {
     const el = document.querySelector(".js-fixed");
     if (!el) return;
+
+    const run = () => {
+        if (window.innerWidth < 992) {
+            el.classList.remove("is-fixed");
+            document.body.classList.remove("is-fixed");
+            window.removeEventListener("scroll", onScroll);
+            return;
+        }
+
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+    };
 
     const offset = el.offsetTop - 16;
 
     const onScroll = () => {
         const shouldFix = window.scrollY >= offset;
-
         el.classList.toggle("is-fixed", shouldFix);
         document.body.classList.toggle("is-fixed", shouldFix);
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll);
+    run();
+
+    window.addEventListener("resize", run);
 };
-/*============== END - FIXED NAV ================*/
+/*↑↑ FIXED NAV ↑↑*/
 
 document.addEventListener("DOMContentLoaded", initFixed);

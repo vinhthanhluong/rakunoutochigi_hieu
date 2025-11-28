@@ -4,55 +4,155 @@
     position: fixed;
     bottom: 0;
     right: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: .4s ease;
     z-index: 5;
 
-    &__btn {
-        display: block;
-        padding: 31px 22px 20px 34px;
+    @include mq() {
         width: 408px;
-        border-top-left-radius: 50px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    &.hide {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(20px) !important;
+
+        @include mq() {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    &__close {
+        @include mq(sp) {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 30px;
+            aspect-ratio: 1/1;
+            background: $color-white;
+            border-radius: 50%;
+            border: 1px solid $color-brown;
+
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transform-origin: top left;
+                width: 20px;
+                height: 2px;
+                border-radius: 2px;
+                background: $color-orange;
+            }
+
+            &::before {
+                rotate: -45deg;
+            }
+
+            &::after {
+                rotate: 45deg;
+            }
+        }
+    }
+
+    &__btn {
+        padding: 22px 10px 7px min(8.21vw, 32px);
+        display: block;
+        width: 100%;
         color: $color-white;
         line-height: 1.5;
         background: url('../images/common/btn_fixed_bg.webp') center/cover no-repeat;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+
+        @include mq(){
+            padding: 31px 22px 20px 34px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 0;
+        }
     }
 
     &__txt {
         position: relative;
-        margin-bottom: 8px;
+        padding-right: min(36.67vw, 143px);
+        margin: 0 auto 8px;
         display: flex;
         flex-direction: column;
-        max-width: 252px;
+        width: fit-content;
+        max-width: 337px;
+
+        @include mq(){
+            margin: 0 0 8px;
+            padding-right: 0;
+            max-width: 252px;
+        }
 
         &::after {
             content: '';
             position: absolute;
             top: 50%;
-            right: -148px;
+            right: 0;
             transform: translateY(-50%);
-            width: 138px;
+            width: 125px;
             aspect-ratio: 138/88;
             background: url('../images/common/btn_fixed_icon.svg') center/100% auto no-repeat;
+        
+            @include mq() {
+                right: -148px;
+                width: 138px;
+            }
         }
 
         &__en {
             font-family: $font-en;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.05em;
+
+            @include mq() {
+                font-size: 12px;
+            }
         }
 
         &__jp {
-            font-size: 27px;
+            font-size: 21px;
             font-weight: 500;
             text-align: center;
             letter-spacing: 0.08em;
 
+            @include mq() {
+                font-size: 27px;
+            }
+
             .large {
-                font-size: 30px;
+                font-size: 23px;
+
+                @include mq() {
+                    font-size: 30px;
+                }
             }
 
             .sm {
-                font-size: 21px;
+                font-size: 16px;
+
+                @include mq() {
+                    font-size: 21px;
+                }
             }
         }
     }
@@ -61,16 +161,25 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        gap: 10px;
-        font-size: 18px;
+        gap: 6px;
+        font-size: 12px;
         font-weight: 700;
         line-height: 1;
 
+        @include mq() {
+            gap: 10px;
+            font-size: 18px;
+        }
+
         &::after {
             content: '';
-            width: 18px;
+            width: 12px;
             aspect-ratio: 1/1;
             background: url('../images/common/icon_arr.svg') center/100% auto no-repeat;
+        
+            @include mq() {
+                width: 18px;
+            }
         }
     }
 }

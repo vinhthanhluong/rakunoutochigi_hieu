@@ -18,11 +18,24 @@
         width: 18px;
         aspect-ratio: 1/1;
         background: url('../images/common/icon_arr_blue.svg') center/100% auto no-repeat;
+        transition: .4s ease;
     }
 
     &__main {
         color: $color-blue;
         border: 1px solid $color-blue;
+
+        @include hover() {
+            &:hover {
+                opacity: 1;
+                color: $color-white;
+                background: $color-blue;
+
+                &::after {
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
     }
 
     &__brown {

@@ -16,11 +16,17 @@
             height: auto;
             flex-direction: row;
             align-items: center;
-            padding: 20px 26px 20px 75px;
+            padding: min(1.43vw, 20px) min(1.86vw, 26px) min(1.43vw, 20px) min(5.36vw, 75px);
             background: $color-white;
             border-radius: 52px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
             overflow-y: unset;
+            opacity: 1;
+            visibility: visible;
+            transition: none;
+        }
+
+        &.show {
             opacity: 1;
             visibility: visible;
         }
@@ -33,7 +39,7 @@
 
         &__contact {
             margin-bottom: 15px;
-            padding: 16px 20px;
+            padding: 16px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -57,15 +63,16 @@
                 padding-left: 27px;
                 margin-bottom: 2px;
                 color: $color-blue;
-                font-family: $font-en;
+                font-family: "Barlow", sans-serif;
                 font-size: 32px;
                 font-weight: 700;
                 line-height: 1.25;
+                letter-spacing: 0.05em;
 
                 &::before {
                     content: '';
                     position: absolute;
-                    top: calc(50% + 0.15em);
+                    top: calc(50% + 0.1em);
                     left: 0;
                     transform: translateY(-50%);
                     width: 22px;
@@ -96,9 +103,9 @@
                 margin-left: min(1.58vw, 23px);
                 padding: 0;
                 display: inline-block;
-                width: 64px;
+                width: min(4.57vw, 64px);
                 aspect-ratio: 1/1;
-                background: url('../images/common/icon_mail.svg') center/32px auto no-repeat, $color-blue;
+                background: url('../images/common/icon_mail.svg') center/min(2.29vw, 32px) auto no-repeat, $color-blue;
                 border-radius: 50%;
 
                 .mail_ttl, .mail_desc {
@@ -183,6 +190,7 @@
         line-height: calc(25/17);
         
         @include mq(ld) { 
+            font-size: min(1.21vw, 17px);
             text-align: center;
             
             &::before {
@@ -198,6 +206,10 @@
         font-weight: 700;
         text-transform: uppercase;
         text-align: center;
+
+        @include mq(ld) {
+            font-size: min(0.86vw, 12px);
+        }
     }
 }
 
@@ -256,17 +268,22 @@
             transform: translateY(-50%) rotate(90deg);
         }
 
+        &.open {
+            &::after {
+                transform: translateY(-50%);
+            }
+        }
+
         &__jp {
             font-weight: 700;
             line-height: calc(25/17);
 
             @include mq(ld) {
-                padding: 6px 36px;
+                padding: min(0.43vw, 6px) min(2.57vw, 36px);
                 display: inline-block;
                 background: $color-orange;
                 color: $color-white;
-                font-size: 16px;
-                font-weight: 700;
+                font-size: min(1.14vw, 16px);
                 line-height: calc(24/16);
                 border-radius: 18px;
                 cursor: pointer;
@@ -337,5 +354,18 @@
                 }
             }
         }
+    }
+}
+
+.open-nav {
+    overflow: hidden;
+
+    @include mq(ld) {
+        overflow: unset;
+    }
+
+    .header_content {
+        opacity: 1;
+        visibility: visible;
     }
 }
