@@ -6,7 +6,7 @@ $breakpoints: (
   "md": "screen and (min-width: 768px)",
   "ld": "screen and (min-width: 992px)",
   "lg": "screen and (min-width: 1200px)",
-  "sp": "screen and (max-width: 767px)",
+  "sp": "screen and (max-width: 767px)"
 );
 
 @mixin mq($breakpoint: md) {
@@ -15,16 +15,14 @@ $breakpoints: (
   }
 }
 
-
 $hovers: (
-    'default': '(any-hover: hover) and (pointer: fine)',
-    'sd': '(any-hover: hover) and (pointer: fine) and (min-width: 768px)',
-    'md': '(any-hover: hover) and (pointer: fine) and (min-width: 1025px)',
+  "default": "(any-hover: hover) and (pointer: fine)",
+  "sd": "(any-hover: hover) and (pointer: fine) and (min-width: 768px)",
+  "md": "(any-hover: hover) and (pointer: fine) and (min-width: 1025px)"
 );
 
-
 @mixin hover($hover: default) {
-    @media #{map.get($hovers, $hover)} {
-        @content;
-    }
+  @media #{map.get($hovers, $hover)} {
+    @content;
+  }
 }
